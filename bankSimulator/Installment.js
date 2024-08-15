@@ -1,8 +1,8 @@
 let Loan = require('./Loan.js')
 
 module.exports = class Installment {
-    constructor(installmentNumber) {
-        this.installmentAmount = Loan.instAmount
+    constructor(installmentNumber, installmentAmount) {
+        this.installmentAmount = installmentAmount
         this.installmentNumber = installmentNumber
         this.installmentSituation = 'pending'
         

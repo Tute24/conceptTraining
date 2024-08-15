@@ -1,10 +1,11 @@
+const Account = require("./Account")
 
 
 module.exports = class User {
-    constructor(userFullName,userEmail,userAccount) {
+    constructor(userFullName,userEmail) {
         this.userFullName = userFullName
         this.userEmail = userEmail
-        this.userAccount = userAccount
+        this.userAccount = new Account(this)
     }
     
     static referredUser(userEmail){

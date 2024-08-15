@@ -1,17 +1,21 @@
+const Installment = require("./Installment.js")
+
 module.exports = class Loan {
-    #tax
+    
     constructor(loanAmount, installments){
         this.loanAmount = loanAmount
         this.loanDate = new Date()
-        this.#tax = Loan.tax
-        this.installments = installments
-        this.installmentAmount = (loanAmount/installments)*Loan.tax
+        this.installments = []
+        for(let i=1;i<installments;i++){
+            this.installments.push(new Installment(i,this.installmentAmount))
+        }
+        this.installmentAmount = (loanAmount/installments)*Loan.#tax
     }
 
-    static tax = 1.08
+    static #tax = 1.08
 
     static get taxValue(){
-        return Loan.tax
+        return Loan.#tax
     }
 
     get emprestimo(){
@@ -23,7 +27,7 @@ module.exports = class Loan {
 
     static set newTaxValue (value){
         if (typeof value === 'number'){
-            tax = 1+ (value/100)
+            Loan.#tax = 1+ (value/100)
         }
     }
 
