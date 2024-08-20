@@ -1,0 +1,16 @@
+.success{
+    border-color: rgb(11, 224, 11);
+}
+
+.failed{
+    border-color: rgb(169, 2, 2);
+}
+
+span{
+    color: red
+}
+
+div{
+    display: flex;
+    padding: 1.5rem;
+}
